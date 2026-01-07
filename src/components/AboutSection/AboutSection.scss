@@ -1,0 +1,89 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.about-section {
+    padding: $spacing-xl 0;
+    // White background for the section wrapper, the card inside is blue
+    background-color: $white;
+}
+
+.about-container {
+    @include container;
+    background-color: #93c5fd; // Light Blue
+    border-radius: 1.875rem;
+    overflow: hidden; // Crop image
+    display: flex;
+    align-items: stretch; // Full height
+    min-height: 31.25rem;
+
+    @include mobile {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.about-content {
+    flex: 1;
+    padding: $spacing-xl;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .about-title {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: $spacing-md;
+        color: #1e3a8a; // Darker blue for text
+
+        @include mobile {
+            font-size: 2rem;
+        }
+    }
+
+    .about-desc {
+        font-size: 1rem;
+        color: #1e3a8a;
+        opacity: 0.8;
+        line-height: 1.6;
+        margin-bottom: $spacing-xl;
+        max-width: 28.125rem;
+    }
+
+    .about-stats {
+        display: flex;
+        gap: $spacing-xl;
+
+        .stat {
+            h3 {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #1e3a8a;
+                margin-bottom: 0.25rem;
+            }
+
+            p {
+                font-size: 0.875rem;
+                color: #1e3a8a;
+                opacity: 0.7;
+                line-height: 1.2;
+            }
+        }
+    }
+}
+
+.about-image-wrapper {
+    flex: 1;
+    position: relative;
+
+    .about-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    @include mobile {
+        height: 18.75rem;
+    }
+}
