@@ -29,6 +29,12 @@
     flex-direction: column;
     justify-content: center;
 
+    @include mobile {
+        text-align: center;
+        align-items: center;
+        padding: $spacing-md;
+    }
+
     .about-title {
         font-size: 3rem;
         font-weight: 700;
@@ -53,6 +59,11 @@
     .about-stats {
         display: flex;
         gap: $spacing-xl;
+        
+        @include mobile {
+            justify-content: center;
+            gap: $spacing-md;
+        }
 
         .stat {
             h3 {

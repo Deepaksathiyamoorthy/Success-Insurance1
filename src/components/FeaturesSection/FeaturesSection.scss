@@ -27,6 +27,12 @@
     flex-direction: column;
     justify-content: center;
 
+    @include mobile {
+        padding: $spacing-md;
+        text-align: center;
+        align-items: center;
+    }
+
     .features-title {
         font-size: 3rem;
         font-weight: 700;

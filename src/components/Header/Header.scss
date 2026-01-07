@@ -66,6 +66,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             clip-path: circle(0% at top right);
             transition: clip-path 0.4s ease-in-out;
+            align-items: center;
+            text-align: center;
 
             &.open {
                 clip-path: circle(150% at top right);
