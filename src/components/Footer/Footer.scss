@@ -1,0 +1,112 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+    background-color: $white; // Changed from dark to white
+    color: $text-dark;
+    padding: $spacing-xl 0 $spacing-sm;
+    border-top: 1px solid #f3f4f6;
+
+    &__container {
+        @include container;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: $spacing-xl;
+        margin-bottom: $spacing-xl;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        
+        @include mobile {
+            align-items: center;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: $text-light;
+            margin-bottom: $spacing-md;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                margin-bottom: 0.75rem;
+                font-size: 0.95rem;
+
+                a {
+                    color: $text-dark;
+                    font-weight: 500;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        &.brand-col {
+            .footer__logo {
+                display: flex;
+                align-items: center;
+                gap: 0.625rem;
+                margin-bottom: $spacing-md;
+                
+                @include mobile {
+                    justify-content: center;
+                }
+
+                .logo-icon {
+                    width: 1.875rem;
+                    height: 1.875rem;
+                    background: #007bff;
+                    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+                }
+
+                h3 {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    line-height: 1.2;
+                    color: $text-dark;
+                    margin: 0;
+                }
+            }
+
+            .footer__desc {
+                color: $text-light;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                max-width: 15.625rem;
+            }
+        }
+
+        .contact-list li {
+            color: $text-dark;
+            font-weight: 500;
+        }
+    }
+
+    &__bottom {
+        @include container;
+        border-top: 1px solid #f3f4f6;
+        padding-top: $spacing-md;
+        display: flex;
+        justify-content: space-between;
+        color: $text-light;
+        font-size: 0.8rem;
+
+        @include mobile {
+            flex-direction: column;
+            gap: 0.625rem;
+            text-align: center;
+        }
+    }
+}
