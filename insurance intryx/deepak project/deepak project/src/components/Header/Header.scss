@@ -1,0 +1,236 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+    position: fixed;
+    top: 1.25rem;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 $spacing-sm;
+
+    &__container {
+        max-width: 70%; // Screenshot shows it doesn't span full width
+        margin: 0 auto;
+        height: 4.375rem;
+        background-color: $white;
+        border-radius: 15px; // Reduced curve from 50px
+        padding: 0 $spacing-md;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative; // Establish positioning context for mobile dropdown
+
+        @include mobile {
+            border-radius: 20px;
+            padding: 0 $spacing-sm;
+            max-width: 95%;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $text-dark;
+
+        img {
+            height: 2rem; // Slightly smaller to align with text
+            width: auto;
+            object-fit: contain;
+        }
+
+        span {
+            color: $star-blue; // Using brand color for 'Insurance'
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+
+        @include mobile {
+            position: absolute;
+            top: 100%; // Position directly below the container
+            left: 0;
+            right: 0;
+            margin-top: 0.5rem; // Small gap
+            width: 100%;
+            background-color: $white;
+            flex-direction: column;
+            padding: $spacing-md;
+            border-radius: 20px; // Match container radius style
+            gap: $spacing-sm;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            clip-path: circle(0% at top right);
+            transition: clip-path 0.4s ease-in-out;
+            align-items: center;
+            text-align: center;
+            z-index: 999;
+
+            &.open {
+                clip-path: circle(150% at top right);
+            }
+        }
+    }
+
+    &__link {
+        font-weight: 500;
+        font-size: 12px;
+        color: #4b5563;
+        transition: color 0.2s;
+        text-decoration: none;
+
+        &:hover {
+            color: $star-blue;
+        }
+
+        &--dropdown {
+            cursor: pointer;
+        }
+    }
+
+    &__dropdown-container {
+        position: relative;
+        display: inline-block;
+
+        &:hover .header__dropdown-menu {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            visibility: visible;
+        }
+    }
+
+    &__dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background-color: $white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        pointer-events: none;
+
+        a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: $text-dark;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+
+            &:hover {
+                background-color: rgba($star-blue, 0.05);
+                color: $star-blue;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        @include mobile {
+            gap: 0.5rem;
+        }
+    }
+
+    &__cta {
+        background-color: $star-blue; // Using the blue from approved plan/assets
+        color: $white;
+        padding: 0.6rem 1.25rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+        border: 2px solid $star-blue; // Added border for structural consistency with secondary
+
+        &:hover {
+            background-color: darken($star-blue, 10%);
+            transform: translateY(-1px);
+            border-color: darken($star-blue, 10%);
+        }
+
+        &--secondary {
+            background-color: transparent;
+            color: $star-blue;
+
+            &:hover {
+                background-color: $star-blue;
+                color: $white;
+            }
+        }
+
+        @include mobile {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+    }
+
+    &__toggle {
+        display: none;
+        background: none;
+        padding: $spacing-xs;
+
+        @include mobile {
+            display: block;
+        }
+
+        .hamburger {
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            background-color: $text-dark;
+            position: relative;
+            transition: background-color 0.3s;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $text-dark;
+                transition: transform 0.3s;
+            }
+
+            &::before {
+                top: -7px;
+            }
+
+            &::after {
+                top: 7px;
+            }
+
+            &.open {
+                background-color: transparent;
+
+                &::before {
+                    top: 0;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    top: 0;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}

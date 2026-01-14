@@ -1,0 +1,80 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.partners-marquee {
+    padding: $spacing-lg 0;
+    background-color: #f9fafb; // Very light gray/white background
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
+
+    .partners-header {
+        text-align: center;
+        margin-bottom: $spacing-lg;
+
+        h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #6b7280; // Gray text
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .marquee-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        .track {
+            display: flex;
+            width: max-content;
+            animation: scroll 30s linear infinite; // Adjust speed as needed
+            gap: 4rem; // Space between logos
+            padding: 0 2rem;
+
+            &:hover {
+                animation-play-state: paused; // Pause on hover
+            }
+        }
+    }
+
+    .partner-logo {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            height: 40px; // Standard height for logos
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(0%); // Keep colors as per screenshot
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &.tata-aia img {
+            height: 55px; // Making this bit bigger as per request
+        }
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%); // Move half-way because we duplicated content 3 times? 
+        // strictly speaking if we duplicate content X times, we need to calculate correctly.
+        // With 3 sets: [...A, ...A, ...A]
+        // We want to move from 0 to -1/3 length? Actually simple infinite scroll usually needs 2 sets and move -50% of the container width if container holds 2 sets.
+        // Let's rely on content width. If width is huge, -50% might be too much if visual repeat is earlier.
+        // Better trick: transform translateX(-33.33%) if we have 3 sets and want to cycle 1 set.
+        transform: translateX(-33.33%);
+    }
+}
