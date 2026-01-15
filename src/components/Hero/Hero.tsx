@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
                     <Avatars />
                     <div className="hero__badge-text">
                         <strong>16K+ Users</strong>
-                        <span>Lorem ipsum</span>
+                        <span>Trusted Customers</span>
                     </div>
                 </div>
 
@@ -47,9 +47,34 @@ const Hero: React.FC = () => {
                 </p>
 
                 <div className="hero__actions">
-                    <button className="hero__cta">
+                    <button
+                        className="hero__cta"
+                        onClick={() => window.open('https://wa.me/919842718201?text=Hello%20I%20need%20details', '_blank')}
+                    >
                         Talk to an Expert
                     </button>
+                </div>
+
+                <div className="hero__stats-container">
+                    <div className="hero__stat-item">
+                        <h3>25+</h3>
+                        <p>Year Experience</p>
+                    </div>
+                    <div className="hero__stat-separator"></div>
+                    <div className="hero__stat-item">
+                        <h3>1.5K+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div className="hero__stat-separator"></div>
+                    <div className="hero__stat-item">
+                        <h3>99.5%</h3>
+                        <p>Settlement Rate</p>
+                    </div>
+                    <div className="hero__stat-separator"></div>
+                    <div className="hero__stat-item">
+                        <h3>24/7</h3>
+                        <p>Expert Support</p>
+                    </div>
                 </div>
 
             </div>

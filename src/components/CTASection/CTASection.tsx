@@ -31,7 +31,12 @@ const CTASection: React.FC = () => {
                         When you file a claim, you'll need to provide necessary documentation,
                         such as police reports or medical records. The insurance company.
                     </p>
-                    <button className="cta-btn">Secure Your Family here</button>
+                    <button
+                        className="cta-btn"
+                        onClick={() => window.open('https://wa.me/919842718201?text=Hello%20I%20need%20details', '_blank')}
+                    >
+                        Secure Your Family here
+                    </button>
                 </div>
             </div>
         </section>

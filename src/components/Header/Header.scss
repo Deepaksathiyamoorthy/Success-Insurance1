@@ -10,20 +10,22 @@
     padding: 0 $spacing-sm;
 
     &__container {
-        max-width: 75rem; // Limit width
+        max-width: 70%; // Screenshot shows it doesn't span full width
         margin: 0 auto;
         height: 4.375rem;
         background-color: $white;
-        border-radius: 50px; // Rounded styling
+        border-radius: 15px; // Reduced curve from 50px
         padding: 0 $spacing-md;
         display: flex;
         justify-content: space-between;
         align-items: center;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative; // Establish positioning context for mobile dropdown
 
         @include mobile {
             border-radius: 20px;
             padding: 0 $spacing-sm;
+            max-width: 95%;
         }
     }
 
@@ -54,20 +56,22 @@
 
         @include mobile {
             position: absolute;
-            top: 5rem;
-            left: 0.625rem;
-            right: 0.625rem;
-            width: auto;
+            top: 100%; // Position directly below the container
+            left: 0;
+            right: 0;
+            margin-top: 0.5rem; // Small gap
+            width: 100%;
             background-color: $white;
             flex-direction: column;
             padding: $spacing-md;
-            border-radius: 20px;
+            border-radius: 20px; // Match container radius style
             gap: $spacing-sm;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             clip-path: circle(0% at top right);
             transition: clip-path 0.4s ease-in-out;
             align-items: center;
             text-align: center;
+            z-index: 999;
 
             &.open {
                 clip-path: circle(150% at top right);
@@ -77,7 +81,7 @@
 
     &__link {
         font-weight: 500;
-        font-size: 0.95rem;
+        font-size: 12px;
         color: #4b5563;
         transition: color 0.2s;
         text-decoration: none;
@@ -152,12 +156,24 @@
         border-radius: 50px;
         font-weight: 600;
         font-size: 0.9rem;
-        transition: transform 0.2s ease, background-color 0.2s ease;
+        transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
         white-space: nowrap;
+        border: 2px solid $star-blue; // Added border for structural consistency with secondary
 
         &:hover {
             background-color: darken($star-blue, 10%);
             transform: translateY(-1px);
+            border-color: darken($star-blue, 10%);
+        }
+
+        &--secondary {
+            background-color: transparent;
+            color: $star-blue;
+
+            &:hover {
+                background-color: $star-blue;
+                color: $white;
+            }
         }
 
         @include mobile {
@@ -187,6 +203,7 @@
             &::after {
                 content: '';
                 position: absolute;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 background-color: $text-dark;
@@ -194,21 +211,23 @@
             }
 
             &::before {
-                transform: translateY(-7px);
+                top: -7px;
             }
 
             &::after {
-                transform: translateY(7px);
+                top: 7px;
             }
 
             &.open {
                 background-color: transparent;
 
                 &::before {
+                    top: 0;
                     transform: rotate(45deg);
                 }
 
                 &::after {
+                    top: 0;
                     transform: rotate(-45deg);
                 }
             }

@@ -23,7 +23,7 @@ const Testimonials: React.FC = () => {
                 <div className="testimonials-header">
                     <h2 className="section-title">What Our <br /> Customers Say</h2>
                     <p className="section-subtitle">
-                        Real stories from people who trust Success Insurance for
+                        Real stories from people who trust Success Insurance Point for
                         their protection.Insurance for their protection.
                     </p>
                 </div>
@@ -34,7 +34,7 @@ const Testimonials: React.FC = () => {
                         <div className="testimonial-card">
                             <div className="stars">★★★★★</div>
                             <p className="quote">
-                                "Success Insurance made choosing the right policy effortless.
+                                "Success Insurance Point made choosing the right policy effortless.
                                 Their guidance was clear, honest, and extremely helpful"
                             </p>
 

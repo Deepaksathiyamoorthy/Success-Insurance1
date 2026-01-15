@@ -2,52 +2,143 @@
 @use '../../styles/mixins' as *;
 
 .footer {
-    background-color: $white; // Changed from dark to white
-    color: $text-dark;
-    padding: $spacing-xl 0 $spacing-sm;
-    border-top: 1px solid #f3f4f6;
+    background-color: #000000;
+    color: #ffffff;
+    padding: $spacing-xl 0;
+    border-top: 1px solid #333;
+    font-family: 'Inter', sans-serif;
 
     &__container {
         @include container;
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1.5fr;
-        gap: $spacing-xl;
-        margin-bottom: $spacing-xl;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        border-top: 1px solid #333; // Grid Top Border
+        border-bottom: 1px solid #333; // Grid Bottom Border
+
+        // Remove gap to make borders touch
+        gap: 0;
+        position: relative; // For absolute positioning of dots
+
+        // Shared style for blue dots
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: $star-blue;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        // Top-left dot
+        &::before {
+            top: -3px;
+            left: 0; // Adjust based on margin/padding if needed
+            transform: translateX(-50%);
+        }
+
+        // Top-right dot
+        &::after {
+            top: -3px;
+            right: 0;
+            transform: translateX(50%);
+        }
+
+        // Extra dots for bottom corners? Or intersection points?
+        // Let's add dots for bottom corners too using a helper class or just inline styles in TSX? 
+        // Actually, let's keep it simple with just corners effectively for now, 
+        // or add more pseudo elements on the first and last child.
 
         @include mobile {
             grid-template-columns: 1fr;
+            border: none; // Reset on mobile
+
+            &::before,
+            &::after {
+                display: none; // Hide dots on mobile for simplicity
+            }
         }
     }
 
     &__column {
+        padding: $spacing-xl;
         display: flex;
         flex-direction: column;
-        
-        @include mobile {
-            align-items: center;
-            text-align: center;
+        border-right: 1px solid #333; // Grid Right Border
+
+        &:first-child {
+            border-left: 1px solid #333;
+            position: relative;
+
+            // Bottom-left dot
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: -3px; // Center on border
+                width: 6px;
+                height: 6px;
+                background-color: $star-blue;
+                border-radius: 50%;
+                z-index: 10;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            // Top-left dot (duplicate with container but safe)
+        }
+
+        &:last-child {
+            position: relative;
+
+            // Bottom-right dot
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -3px; // Center on border
+                right: -3px; // Center on border (border-right is on the element itself? No wait, grid items don't have border-right by default here, oh I added it)
+                // Actually I added border-right to ALL columns.
+                // So the last column HAS a right border.
+                width: 6px;
+                height: 6px;
+                background-color: $star-blue;
+                border-radius: 50%;
+                z-index: 10;
+
+                @include mobile {
+                    display: none;
+                }
+            }
         }
 
         h4 {
-            font-size: 1rem;
-            font-weight: 500;
-            color: $text-light;
-            margin-bottom: $spacing-md;
+            font-size: 12px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-transform: capitalize;
         }
 
         ul {
             list-style: none;
+            padding: 0;
+            margin: 0;
 
             li {
-                margin-bottom: 0.75rem;
-                font-size: 0.95rem;
+                margin-bottom: 0.8rem;
+                font-size: 12px;
+                color: #9ca3af; // Gray 400
 
                 a {
-                    color: $text-dark;
-                    font-weight: 500;
+                    color: #9ca3af;
+                    text-decoration: none;
+                    transition: color 0.2s;
 
                     &:hover {
-                        color: $primary-color;
+                        color: $star-blue;
                     }
                 }
             }
@@ -57,56 +148,48 @@
             .footer__logo {
                 display: flex;
                 align-items: center;
-                gap: 0.625rem;
-                margin-bottom: $spacing-md;
-                
-                @include mobile {
-                    justify-content: center;
-                }
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
 
-                .logo-icon {
-                    width: 1.875rem;
-                    height: 1.875rem;
-                    background: #007bff;
-                    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+                img {
+                    height: 2rem;
+                    width: auto;
                 }
 
                 h3 {
-                    font-size: 1.1rem;
+                    font-size: 1.2rem;
                     font-weight: 700;
-                    line-height: 1.2;
-                    color: $text-dark;
+                    line-height: 1.1;
+                    color: #ffffff;
                     margin: 0;
                 }
             }
 
             .footer__desc {
-                color: $text-light;
-                font-size: 0.9rem;
-                line-height: 1.5;
-                max-width: 15.625rem;
+                color: #9ca3af;
+                font-size: 12px;
+                line-height: 1.6;
+                max-width: 18rem;
             }
         }
 
         .contact-list li {
-            color: $text-dark;
-            font-weight: 500;
+            color: #9ca3af;
         }
     }
 
     &__bottom {
         @include container;
-        border-top: 1px solid #f3f4f6;
-        padding-top: $spacing-md;
+        padding-top: $spacing-lg;
         display: flex;
         justify-content: space-between;
-        color: $text-light;
-        font-size: 0.8rem;
+        color: #6b7280; // Gray 500
+        font-size: 12px;
 
         @include mobile {
             flex-direction: column;
-            gap: 0.625rem;
-            text-align: center;
+            align-items: center;
+            gap: 0.5rem;
         }
     }
 }

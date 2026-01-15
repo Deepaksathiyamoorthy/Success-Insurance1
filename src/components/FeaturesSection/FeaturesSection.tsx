@@ -28,10 +28,28 @@ const FeaturesSection: React.FC = () => {
                     <h2 className="features-title">Brief explanations of <br />each feature</h2>
                     <p className="features-desc">
                         Life is full of uncertainties. But with the safeguard your loved ones
-                        and your financial comprehensive are designed to provide peace of
+                        and your financial comprehensive are designed provide peace of
                         mind throws your way.
                     </p>
-                    <button className="features-cta">Learn More</button>
+
+                    <ul className="features-list">
+                        <li>
+                            <span className="check-icon">✓</span>
+                            24/7 Customer support
+                        </li>
+                        <li>
+                            <span className="check-icon">✓</span>
+                            Quick & Hassle-Free Claim Processing
+                        </li>
+                        <li>
+                            <span className="check-icon">✓</span>
+                            Customizable Coverage Options
+                        </li>
+                        <li>
+                            <span className="check-icon">✓</span>
+                            Transparent Policy Guidance
+                        </li>
+                    </ul>
                 </div>
 
                 <div className="features-image-wrapper">
@@ -39,13 +57,16 @@ const FeaturesSection: React.FC = () => {
 
                     <div className="feature-pills">
                         <div className="pill">
-                            <span className="icon">🕒</span> 24/7 Customer Support
+                            <div className="pill-icon clock">🕒</div>
+                            <div className="pill-text">24/7 Customer Support</div>
                         </div>
                         <div className="pill">
-                            <span className="icon">✅</span> Quick Claim Processing
+                            <div className="pill-icon clip">📋</div>
+                            <div className="pill-text">Quick Claim Processing</div>
                         </div>
                         <div className="pill">
-                            <span className="icon">🛡️</span> Customizable Coverage
+                            <div className="pill-icon stack">📄</div>
+                            <div className="pill-text">Customizable Coverage</div>
                         </div>
                     </div>
                 </div>

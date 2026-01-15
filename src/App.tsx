@@ -1,27 +1,16 @@
-import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import PlansSection from './components/PlansSection/PlansSection';
-import AboutSection from './components/AboutSection/AboutSection';
-import FeaturesSection from './components/FeaturesSection/FeaturesSection';
-import CTASection from './components/CTASection/CTASection';
-import Testimonials from './components/Testimonials/Testimonials';
-import Footer from './components/Footer/Footer';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import NewPage from './pages/NewPage/NewPage';
 import './App.scss'
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <main>
-        <Hero />
-        <PlansSection />
-        <AboutSection />
-        <FeaturesSection />
-        <Testimonials />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/new-page" element={<NewPage />} />
+      </Routes>
+    </Router>
   )
 }
 

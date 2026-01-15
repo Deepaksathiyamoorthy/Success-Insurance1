@@ -2,12 +2,6 @@ import React, { useEffect } from 'react';
 import './PlansSection.scss';
 import { sr, revealSettings } from '../../utils/scrollReveal';
 
-// Partner Logos
-import starLogo from '../../assets/star-health-insurance-seeklogo-1.png';
-import cholaLogo from '../../assets/chola-ms-seeklogo-1.png';
-import licLogo from '../../assets/lic-india-seeklogo-2.png';
-import newIndiaLogo from '../../assets/the-new-india-assurance-co-ltd-seeklogo-1.png';
-
 // Plan Images (Matched from reference)
 import lifeImg from '../../assets/kid-playing-with-paper-plane-1.png';
 import healthImg from '../../assets/kid-playing-with-paper-plane-2.png';
@@ -80,39 +74,6 @@ const PlansSection: React.FC = () => {
 
     return (
         <section className="plans-section" id="plans">
-            {/* Authorized Partners Strip */}
-            <div className="partners-strip">
-                <span className="partners-label">Our Authorized Insurance Partners</span>
-                <div className="partners-marquee">
-                    <div className="partners-logos">
-                        <img src={starLogo} alt="Star Health" />
-                        <img src={cholaLogo} alt="Chola MS" />
-                        <img src={licLogo} alt="LIC India" />
-                        <img src={newIndiaLogo} alt="New India Assurance" />
-                        {/* Repeat for seamless scroll */}
-                        <img src={starLogo} alt="Star Health" />
-                        <img src={cholaLogo} alt="Chola MS" />
-                        <img src={licLogo} alt="LIC India" />
-                        <img src={newIndiaLogo} alt="New India Assurance" />
-                        {/* Repeat for ultra-wide coverage */}
-                        <img src={starLogo} alt="Star Health" />
-                        <img src={cholaLogo} alt="Chola MS" />
-                        <img src={licLogo} alt="LIC India" />
-                        <img src={newIndiaLogo} alt="New India Assurance" />
-                        {/* Repeat for end-to-end reliability */}
-                        <img src={starLogo} alt="Star Health" />
-                        <img src={cholaLogo} alt="Chola MS" />
-                        <img src={licLogo} alt="LIC India" />
-                        <img src={newIndiaLogo} alt="New India Assurance" />
-                        {/* Repeat for loop point buffering */}
-                        <img src={starLogo} alt="Star Health" />
-                        <img src={cholaLogo} alt="Chola MS" />
-                        <img src={licLogo} alt="LIC India" />
-                        <img src={newIndiaLogo} alt="New India Assurance" />
-                    </div>
-                </div>
-            </div>
-
             <div className="plans-container">
                 <div className="plans-header">
                     <h2>Insurance Plans</h2>

@@ -32,7 +32,7 @@
     }
 
     .section-subtitle {
-        font-size: 1.125rem;
+        font-size: 12px;
         color: #666;
         line-height: 1.5;
         max-width: 40rem;
@@ -153,39 +153,38 @@
             }
 
             &.item-1 {
-                // Frame 1059 (Nurse/Elderly) - Middle Left
-                grid-column: 4 / 8;
-                grid-row: 4 / 8;
+                // Frame 1059 (Smiling Girl) - Bottom Center (Prominent)
+                grid-column: 5 / 9;
+                grid-row: 8 / 13;
                 z-index: 2;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             }
 
             &.item-2 {
-                // Frame 1060 (Woman at Dentist) - Right Tall
-                grid-column: 8 / 13;
-                grid-row: 1 / 9;
+                // Frame 1060 (Woman at Dentist) - Bottom Right
+                grid-column: 9 / 13;
+                grid-row: 8 / 11;
                 margin-left: 1rem;
+                margin-top: 1.5rem;
             }
 
             &.item-3 {
-                // Frame 1058 (Family on Couch) - Bottom Left
-                grid-column: 1 / 6;
-                grid-row: 8 / 12;
+                // Frame 1058 (Family on Couch) - Top Right
+                grid-column: 7 / 13;
+                grid-row: 2 / 8;
             }
 
             &.item-4 {
-                // Frame 1057 (Business Meeting) - Bottom Center
-                grid-column: 6 / 10;
-                grid-row: 8 / 13;
-                margin-left: 1rem;
-                z-index: 2;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                // Frame 1057 (Business Meeting) - Bottom Left
+                grid-column: 1 / 5;
+                grid-row: 8 / 11;
+                margin-top: 1.5rem;
             }
 
             &.item-5 {
-                // Frame 1056 (Couple with House/Keys) - Bottom Right
-                grid-column: 10 / 14;
-                grid-row: 8 / 12;
+                // Frame 1056 (Couple with House/Keys) - Middle Left
+                grid-column: 2 / 7;
+                grid-row: 4 / 8;
                 margin-left: 1rem;
             }
         }
